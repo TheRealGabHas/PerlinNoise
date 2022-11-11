@@ -18,7 +18,7 @@ This function takes the following arguments :
 - `name (String)` : The name of the saved generated image (optional) (default: "noise_XXXXXX")
 
 
-**Caution:** When entering the path to save an image, make sure of using "/" and not "\".
+**Caution:** When entering the path to save an image, make sure of using "/" and not "\\".
 
 
 **Note:**
