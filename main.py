@@ -135,15 +135,42 @@ def apply_noise(canvas: Image, octave: int) -> Image:
     return canvas
 
 
+#  Create an image of a given size and applies noise on it following octave
+def create_noise(width: int, height: int, octave: int) -> Image:
+    return apply_noise(create_canvas(width, height), octave=octave)
+
+
+#  Save the given image as a png following file path and name
+def save_image(image: Image, path: str, name: str) -> Image:
+    image.save(f"{path}/{name}.png")
+
+
 #  Displays the given image
 def show_map(canvas: Image) -> None:
     canvas.show()
 
 
 #  Practical function that creates, apply noise and displays an image
-def display_canvas(width: int, height: int, octave: int) -> None:
-    show_map(apply_noise(create_canvas(width, height), octave=octave))
+#  User can choose to save/ preview it or not with a given path/ name (or default one)
+def render_canvas(width: int, height: int, octave: int,
+                  preview: bool = True, save: bool = False,
+                  path: str = "C:", name: str = "noise") -> None:
+    image = create_noise(width, height, octave=octave)
+
+    #  User wants to preview the generated image
+    if preview:
+        show_map(image)
+
+    #  User wants to save the generated image
+    if save:
+        save_name: str = name
+
+        #  Preventing duplicate name is no specific name is given
+        if save_name == "noise":
+            save_name: str = f"noise_{(random.randint(10000, 99999))}"
+
+        save_image(image, path, save_name)
 
 
-#  Example of a canvas of 128x128 with 10 octaves of Perlin noise
-#  display_canvas(128, 128, 10)
+#  Example of a canvas of 256x256 with 10 octaves of Perlin noise
+render_canvas(256, 256, 10, preview=False, save=True, path="C:/Users/GabHas/Desktop/")
