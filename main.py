@@ -173,4 +173,4 @@ def render_canvas(width: int, height: int, octave: int,
 
 
 #  Example of a canvas of 256x256 with 10 octaves of Perlin noise
-render_canvas(256, 256, 10, preview=False, save=True, path="C:/Users/GabHas/Desktop/")
+render_canvas(256, 256, 10, preview=False, save=True, path="C:")
