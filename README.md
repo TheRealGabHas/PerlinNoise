@@ -25,8 +25,22 @@ This function takes the following arguments :
 The default name of an image is "noise_[NUMBER]" where "[NUMBER]" is a randomly generated number.
 The goal of this is to avoid duplicated file name.
 
+## Example
 
-## Credits :
+Let's try to run the following line of code:
+
+```python
+# After importing the script
+render_canvas(256, 256, 10, preview=True, save=True, path="C:/Users/TheRealGabHas/Desktop/")
+```
+This returns an image of 256x256 pixels with 10 octaves of Perlin noise.
+The image will be previewed, then saved in the following directory : `C:/Users/TheRealGabHas/Desktop/`.
+
+Here is the output:
+
+![Example](example.png)
+
+## Credits
 
 Program inspired by this tutorial :
 - https://rtouti.github.io/graphics/perlin-noise-algorithm
